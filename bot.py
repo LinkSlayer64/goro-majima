@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import os
 
-bot = commands.Bot(command_prefix='/', description='Kiryu's best buddy?')
+bot = commands.Bot(command_prefix='/', description='Kiryu\'s best buddy?')
 key = os.getenv('DISCORD_KEY')
 
 @bot.event
