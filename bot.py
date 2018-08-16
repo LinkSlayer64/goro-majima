@@ -13,8 +13,9 @@ async def on_ready():
 	print('------')
 	print('made by LS64 in the least efficient way possible.')
 	
-@bot.comannd()
+@bot.comm	and()
 async def greet(ctx):
 	await ctx.send("Kiryu-chan!")
 
+print(key)
 bot.run(key)
