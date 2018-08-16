@@ -7,14 +7,14 @@ key = os.getenv('DISCORD_KEY')
 
 @bot.event
 async def on_ready():
-    print('Logged in as')
-    print(bot.user.name)
-    print(bot.user.id)
-    print('------')
+	print('Logged in as')
+	print(bot.user.name)
+	print(bot.user.id)
+	print('------')
 	print('made by LS64 in the least efficient way possible.')
 	
 @bot.comannd()
 async def greet(ctx):
 	await ctx.send("Kiryu-chan!")
-	
-bot.run(DISCORD_KEY)
+
+bot.run(key)
