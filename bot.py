@@ -23,6 +23,7 @@ async def mayo(ctx):
 	
 @bot.command()
 async def sausage(ctx):
+	"""Daddy would you like some sauasage."""
 	await ctx.send("https://i.imgur.com/xxdRjoc.gif")
 
 print(key)
