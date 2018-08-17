@@ -15,6 +15,7 @@ async def on_ready():
 	
 @bot.command()
 async def greet(ctx):
+	"""A greeting from Goro-san"""
 	await ctx.send("Kiryu-chan!")
 	
 @bot.command()
