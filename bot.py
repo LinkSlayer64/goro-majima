@@ -16,6 +16,10 @@ async def on_ready():
 @bot.command()
 async def greet(ctx):
 	await ctx.send("Kiryu-chan!")
+	
+@bot.command()
+async def mayo(ctx):
+	await ctx.send("https://i.imgur.com/ENfyFcQ.gif")
 
 print(key)
 bot.run(key)
