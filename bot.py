@@ -19,6 +19,7 @@ async def greet(ctx):
 	
 @bot.command()
 async def mayo(ctx):
+	"""omnomnomnom"""
 	await ctx.send("https://i.imgur.com/ENfyFcQ.gif")
 	
 @bot.command()
