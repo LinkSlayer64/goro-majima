@@ -27,6 +27,11 @@ async def mayo(ctx):
 async def sausage(ctx):
 	"""Daddy would you like some sauasage."""
 	await ctx.send("https://i.imgur.com/xxdRjoc.gif")
+	
+@bot.command()
+async def trytobreak(ctx):
+	"""attempt to force the bot to react to its own message."""
+	await ctx.send("/greet")
 
 print(key)
 bot.run(key)
