@@ -34,6 +34,11 @@ async def sausage(ctx):
 async def trytobreak(ctx):
 	"""attempt to force the bot to react to its own message."""
 	await ctx.send("/greet")
+	
+@bot.command()
+async def displeased(ctx):
+	"""Ganondorf disapproves"""
+	await ctx.send("https://i.imgur.com/nxIFd44.gif")
 
 print(key)
 bot.run(key)
