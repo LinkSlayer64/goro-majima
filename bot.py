@@ -140,6 +140,8 @@ async def ohmygod(ctx):
 	vclient.play(source)
 	print("we've played it?")
 	
+@cursed.after_invoke
+@ohmygod.after_invoke	
 @goodnight.after_invoke
 @unacceptable.after_invoke
 async def disconnect_voice(ctx):
