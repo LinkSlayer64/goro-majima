@@ -72,9 +72,9 @@ async def unacceptable(ctx):
 @bot.command()
 async def goodnight(ctx):
 	"""(voice) see ya"""
-		if not discord.opus.is_loaded():
+	if not discord.opus.is_loaded():
 		discord.opus.load_opus('libopus.so.0')
-		print("opus found biotch")
+		print("opus loaded biotch")
 	#await ctx.author.voice.channel.connect()
 	if ctx.author.voice:
 		vchannel = ctx.author.voice.channel
