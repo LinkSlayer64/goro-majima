@@ -63,8 +63,15 @@ async def unacceptable(ctx):
 	print("we've opened the PCMAudio, maybe?")
 	await vclient.play(source)
 	print("we've played it?")
-	await vclient.disconnect()
-	print("we disconnected from it")
+	#if vclient.is_playing
+	#await vclient.disconnect()
+	#print("we disconnected from it")
+
+@unacceptable.after_invoke
+async def disconnect_voice(ctx):
+	while ctx.voice_client.is_playing():
+		disconnect_voice(ctx)
+	await ctx.voice_client.disconnect
 
 print(key)
 bot.run(key)
