@@ -3,6 +3,7 @@ from discord.ext import commands
 from discord.voice_client import VoiceClient
 import os
 import asyncio
+import random
 
 bot = commands.Bot(command_prefix='/', description='Kiryu\'s best buddy?')
 key = os.getenv('DISCORD_KEY')
@@ -68,11 +69,46 @@ async def unacceptable(ctx):
 	#await vclient.disconnect()
 	#print("we disconnected from it")
 
+@bot.command()
+async def goodnight(ctx):
+	"""(voice) see ya"""
+		if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+		print("opus found biotch")
+	#await ctx.author.voice.channel.connect()
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	print("we've acquired the voice channel")
+	vclient = await vchannel.connect()
+	print("we acquired the vclient")
+	#await bot.join_voice_channel(vchannel)
+	#source = discord.PCMAudio(open("./UNACCEPTABLE.opus"))
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("gameoveryeah.ogg"))
+	print("we've opened the PCMAudio, maybe?")
+	vclient.play(source)
+	print("we've played it?")
+	
+@goodnight.after_invoke
 @unacceptable.after_invoke
 async def disconnect_voice(ctx):
 	while ctx.voice_client.is_playing():
 		await asyncio.sleep(0.1)
 	await ctx.voice_client.disconnect()
 
+	
+@bot.command()
+async def karin(ctx):
+	"""Laugh like an Ojou-sama"""
+	choices = [
+	'https://i.imgur.com/xZcazrq.gif',
+	'https://i.imgur.com/yWc2FJJ.gif',
+	'https://i.imgur.com/PzhPIDZ.gif'
+	]
+	await ctx.send('OOOH HO HO HO\n' + random.choice(choices))
+	
 print(key)
 bot.run(key)
