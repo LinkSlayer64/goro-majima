@@ -70,7 +70,7 @@ async def unacceptable(ctx):
 @unacceptable.after_invoke
 async def disconnect_voice(ctx):
 	while ctx.voice_client.is_playing():
-		disconnect_voice(ctx)
+		await disconnect_voice(ctx)
 	await ctx.voice_client.disconnect()
 
 print(key)
