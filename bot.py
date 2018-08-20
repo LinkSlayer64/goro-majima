@@ -44,6 +44,8 @@ async def displeased(ctx):
 @bot.command()
 async def unacceptable(ctx):
 	"""(voice enabled) UNACCEPTABLE"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus()
 	#await ctx.author.voice.channel.connect()
 	vchannel = ctx.author.voice.channel
 	vclient = await vchannel.connect()
