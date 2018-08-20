@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from discord.voice_client import VoiceClient
 import os
+import asyncio
 
 bot = commands.Bot(command_prefix='/', description='Kiryu\'s best buddy?')
 key = os.getenv('DISCORD_KEY')
@@ -48,7 +49,7 @@ async def unacceptable(ctx):
 		discord.opus.load_opus('libopus.so.0')
 		print("opus found biotch")
 	#await ctx.author.voice.channel.connect()
-	if ctx.author.voice.channel is not None:
+	if ctx.author.voice:
 		vchannel = ctx.author.voice.channel
 	else:
 		print("no channel")
@@ -70,7 +71,7 @@ async def unacceptable(ctx):
 @unacceptable.after_invoke
 async def disconnect_voice(ctx):
 	while ctx.voice_client.is_playing():
-		await disconnect_voice(ctx)
+		await asyncio.sleep(0.1)
 	await ctx.voice_client.disconnect()
 
 print(key)
