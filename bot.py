@@ -45,7 +45,7 @@ async def displeased(ctx):
 async def unacceptable(ctx):
 	"""(voice enabled) UNACCEPTABLE"""
 	if not discord.opus.is_loaded():
-		discord.opus.load_opus()
+		discord.opus.load_opus('libopus.so.0')
 	#await ctx.author.voice.channel.connect()
 	vchannel = ctx.author.voice.channel
 	vclient = await vchannel.connect()
