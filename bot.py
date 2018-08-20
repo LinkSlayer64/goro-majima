@@ -61,7 +61,7 @@ async def unacceptable(ctx):
 	#source = discord.PCMAudio(open("./UNACCEPTABLE.opus"))
 	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("unacceptable.ogg"))
 	print("we've opened the PCMAudio, maybe?")
-	await vclient.play(source)
+	vclient.play(source)
 	print("we've played it?")
 	#if vclient.is_playing
 	#await vclient.disconnect()
@@ -71,7 +71,7 @@ async def unacceptable(ctx):
 async def disconnect_voice(ctx):
 	while ctx.voice_client.is_playing():
 		disconnect_voice(ctx)
-	await ctx.voice_client.disconnect
+	await ctx.voice_client.disconnect()
 
 print(key)
 bot.run(key)
