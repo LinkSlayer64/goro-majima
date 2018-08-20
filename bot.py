@@ -48,7 +48,7 @@ async def unacceptable(ctx):
 	vchannel = author.voice_channel
 	await vclient = vchannel.connect()
 	#await bot.join_voice_channel(vchannel)
-	source = discord.PCMAudio(open(./unacceptable))
+	source = discord.PCMAudio(open("./unacceptable.opus"))
 	await vclient.play(source)
 
 print(key)
