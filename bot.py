@@ -7,6 +7,8 @@ key = os.getenv('DISCORD_KEY')
 
 @bot.event
 async def on_ready():
+	game = discord.game("Tracking down Kiryu-Chan")
+	bot.change_presence(status=discord.Status.idle, activity=game)
 	print('Logged in as')
 	print(bot.user.name)
 	print(bot.user.id)
