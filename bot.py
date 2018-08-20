@@ -46,9 +46,12 @@ async def unacceptable(ctx):
 	"""(voice enabled) UNACCEPTABLE"""
 	if not discord.opus.is_loaded():
 		discord.opus.load_opus('libopus.so.0')
+		print("opus found biotch")
 	#await ctx.author.voice.channel.connect()
 	vchannel = ctx.author.voice.channel
+	print("we've acquired the voice channel")
 	vclient = await vchannel.connect()
+	print("we acquired the vclient")
 	#await bot.join_voice_channel(vchannel)
 	source = discord.PCMAudio(open("./UNACCEPTABLE.opus"))
 	vclient.play(source)
