@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from discord.voice_client import VoiceClient
 import os
 
 bot = commands.Bot(command_prefix='/', description='Kiryu\'s best buddy?')
@@ -39,6 +40,16 @@ async def trytobreak(ctx):
 async def displeased(ctx):
 	"""Ganondorf disapproves"""
 	await ctx.send("https://i.imgur.com/nxIFd44.gif")
+	
+@bot.command()
+async def unacceptable(ctx):
+	"""(voice enabled) UNACCEPTABLE"""
+	author = ctx.message.author
+	vchannel = author.voice_channel
+	await vclient = vchannel.connect()
+	#await bot.join_voice_channel(vchannel)
+	source = discord.PCMAudio(open(./unacceptable))
+	await vclient.play(source)
 
 print(key)
 bot.run(key)
