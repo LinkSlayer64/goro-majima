@@ -50,7 +50,7 @@ async def unacceptable(ctx):
 	#await ctx.author.voice.channel.connect()
 	if ctx.author.voice.channel is not None:
 		vchannel = ctx.author.voice.channel
-	else
+	else:
 		print("no channel")
 		
 		return await ctx.send("You're not in voice Kiryu-chan!")
