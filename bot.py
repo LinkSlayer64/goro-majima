@@ -48,7 +48,12 @@ async def unacceptable(ctx):
 		discord.opus.load_opus('libopus.so.0')
 		print("opus found biotch")
 	#await ctx.author.voice.channel.connect()
-	vchannel = ctx.author.voice.channel
+	if ctx.author.voice.channel is not None:
+		vchannel = ctx.author.voice.channel
+	else
+		print("no channel")
+		
+		return await ctx.send("You're not in voice Kiryu-chan!")
 	print("we've acquired the voice channel")
 	vclient = await vchannel.connect()
 	print("we acquired the vclient")
@@ -58,7 +63,7 @@ async def unacceptable(ctx):
 	print("we've opened the PCMAudio, maybe?")
 	vclient.play(source)
 	print("we've played it?")
-	vclient.disconnect()
+	await vclient.disconnect()
 	print("we disconnected from it")
 
 print(key)
