@@ -163,7 +163,7 @@ async def karin(ctx):
 @bot.command()
 async def antagonizeLTG(ctx):
 	"""bots shouldn't listen to other bots, but oh well lol"""
-	ctx.send("!banned")
+	awaite ctx.send("!banned")
 
 	
 print(key)
