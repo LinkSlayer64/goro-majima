@@ -44,6 +44,11 @@ async def displeased(ctx):
 	await ctx.send("https://i.imgur.com/nxIFd44.gif")
 	
 @bot.command()
+async def smile(ctx):
+	"""Who can resist that smile"""
+	await ctx.send("https://i.imgur.com/c3UV8TF.gif")
+	
+@bot.command()
 async def unacceptable(ctx):
 	"""(voice enabled) UNACCEPTABLE"""
 	if not discord.opus.is_loaded():
@@ -140,6 +145,78 @@ async def ohmygod(ctx):
 	vclient.play(source)
 	print("we've played it?")
 	
+@bot.command()
+async def yes(ctx):
+ 	"""(voice) For you, the day Bison graced your village was the most important day of your life."""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+		print("opus loaded biotch")
+	#await ctx.author.voice.channel.connect()
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	print("we've acquired the voice channel")
+	vclient = await vchannel.connect()
+	print("we acquired the vclient")
+	#await bot.join_voice_channel(vchannel)
+	#source = discord.PCMAudio(open("./UNACCEPTABLE.opus"))
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("bisonyesonce.ogg"))
+	print("we've opened the PCMAudio, maybe?")
+	vclient.play(source)
+	print("we've played it?")
+	
+@bot.command()
+async def yesyes(ctx):
+	"""(voice) But for me, it was Tuesday."""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+		print("opus loaded biotch")
+	#await ctx.author.voice.channel.connect()
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	print("we've acquired the voice channel")
+	vclient = await vchannel.connect()
+	print("we acquired the vclient")
+	#await bot.join_voice_channel(vchannel)
+	#source = discord.PCMAudio(open("./UNACCEPTABLE.opus"))
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("bisonyes.ogg"))
+	print("we've opened the PCMAudio, maybe?")
+	vclient.play(source)
+	print("we've played it?")
+	
+@bot.command()
+async def sickness(ctx):
+	"""(voice) Get down with it"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+		print("opus loaded biotch")
+	#await ctx.author.voice.channel.connect()
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	print("we've acquired the voice channel")
+	vclient = await vchannel.connect()
+	print("we acquired the vclient")
+	#await bot.join_voice_channel(vchannel)
+	#source = discord.PCMAudio(open("./UNACCEPTABLE.opus"))
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("sickness.ogg"))
+	print("we've opened the PCMAudio, maybe?")
+	vclient.play(source)
+	print("we've played it?")
+	
+@yes.after_invoke
+@yesyes.after_invoke
+@sickness.after_invoke	
 @cursed.after_invoke
 @ohmygod.after_invoke	
 @goodnight.after_invoke
