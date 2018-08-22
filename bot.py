@@ -147,7 +147,7 @@ async def ohmygod(ctx):
 	
 @bot.command()
 async def yes(ctx):
- 	"""(voice) For you, the day Bison graced your village was the most important day of your life."""
+	"""(voice) For you, the day Bison graced your village was the most important day of your life."""
 	if not discord.opus.is_loaded():
 		discord.opus.load_opus('libopus.so.0')
 		print("opus loaded biotch")
