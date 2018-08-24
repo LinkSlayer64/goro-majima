@@ -236,7 +236,31 @@ async def mahinapea(ctx):
 	print("we've opened the PCMAudio, maybe?")
 	vclient.play(source)
 	print("we've played it?")
+	
+@bot.command()
+async def no(ctx):
+	"""(voice) no"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+		print("opus loaded biotch")
+	#await ctx.author.voice.channel.connect()
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	print("we've acquired the voice channel")
+	vclient = await vchannel.connect()
+	print("we acquired the vclient")
+	#await bot.join_voice_channel(vchannel)
+	#source = discord.PCMAudio(open("./UNACCEPTABLE.opus"))
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("mariono.ogg"))
+	print("we've opened the PCMAudio, maybe?")
+	vclient.play(source)
+	print("we've played it?")
 
+@no.after_invoke
 @mahinapea.after_invoke
 @yes.after_invoke
 @yesyes.after_invoke
