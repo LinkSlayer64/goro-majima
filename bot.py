@@ -239,7 +239,7 @@ async def mahinapea(ctx):
 	
 @bot.command()
 async def no(ctx):
-	"""(voice) no"""
+	"""(voice) Sure was nice of the princess to invite us over for a picnic, eh Luigi?"""
 	if not discord.opus.is_loaded():
 		discord.opus.load_opus('libopus.so.0')
 		print("opus loaded biotch")
