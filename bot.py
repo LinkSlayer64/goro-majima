@@ -259,7 +259,70 @@ async def no(ctx):
 	print("we've opened the PCMAudio, maybe?")
 	vclient.play(source)
 	print("we've played it?")
+	
+	
+@bot.command()
+async def hotel(ctx):
+	"""(voice) I hope she made lots of spaghetti!"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("mariohotel.ogg"))
+	vclient.play(source)
+	
+	
+@bot.command()
+async def crusher(ctx):
+	"""(voice) Bison Bucks"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("psychocrusher.ogg"))
+	vclient.play(source)
+	
+	
+@bot.command()
+async def gpeople(ctx):
+	"""(voice) What is it that we fight for?"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("gpeople.ogg"))
+	vclient.play(source)
+	
+@bot.command()
+async def glight(ctx):
+	"""(voice) POWER TO THE EARTH"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("glightitup.ogg"))
+	vclient.play(source)
 
+@hotel.after_invoke
+@crusher.after_invoke
+@glight.after_invoke
+@gpeople.after_invoke
 @no.after_invoke
 @mahinapea.after_invoke
 @yes.after_invoke
