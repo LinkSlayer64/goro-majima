@@ -318,7 +318,53 @@ async def glight(ctx):
 	vclient = await vchannel.connect()
 	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("glightitup.ogg"))
 	vclient.play(source)
+	
+	
+@bot.command()
+async def nut(ctx):
+	"""(voice) Nut (1993) not the 2016 remake"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("glightitup.ogg"))
+	vclient.play(source)
+	
+@bot.command()
+async def nut2(ctx):
+	"""(voice) Nut 2: Hell on Earth"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("glightitup.ogg"))
+	vclient.play(source)
+	
+@bot.command()
+async def finalnut(ctx):
+	"""(voice) Nut Eternal"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("glightitup.ogg"))
+	vclient.play(source)
 
+@nut.after_invoke
+@nut2.after_invoke
+@finalnut.after_invoke
 @hotel.after_invoke
 @crusher.after_invoke
 @glight.after_invoke
