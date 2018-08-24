@@ -331,7 +331,7 @@ async def nut(ctx):
 		print("no channel")
 		return await ctx.send("You're not in voice Kiryu-chan!")
 	vclient = await vchannel.connect()
-	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("glightitup.ogg"))
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("nut.ogg"))
 	vclient.play(source)
 	
 @bot.command()
@@ -345,7 +345,7 @@ async def nut2(ctx):
 		print("no channel")
 		return await ctx.send("You're not in voice Kiryu-chan!")
 	vclient = await vchannel.connect()
-	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("glightitup.ogg"))
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("nut2.ogg"))
 	vclient.play(source)
 	
 @bot.command()
@@ -359,7 +359,7 @@ async def finalnut(ctx):
 		print("no channel")
 		return await ctx.send("You're not in voice Kiryu-chan!")
 	vclient = await vchannel.connect()
-	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("glightitup.ogg"))
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("finalnut.ogg"))
 	vclient.play(source)
 
 @nut.after_invoke
