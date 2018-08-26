@@ -362,6 +362,21 @@ async def finalnut(ctx):
 	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("finalnut.ogg"))
 	vclient.play(source)
 
+@bot.command()
+async def dododo(ctx):
+	"""(voice) What's the song?"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("darude_dododo.ogg"))
+	vclient.play(source)
+	
+@dododo.after_invoke
 @nut.after_invoke
 @nut2.after_invoke
 @finalnut.after_invoke
