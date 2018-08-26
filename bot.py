@@ -209,7 +209,7 @@ async def sickness(ctx):
 	print("we acquired the vclient")
 	#await bot.join_voice_channel(vchannel)
 	#source = discord.PCMAudio(open("./UNACCEPTABLE.opus"))
-	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("sickness.ogg"))
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("sickness_quiet.ogg"))
 	print("we've opened the PCMAudio, maybe?")
 	vclient.play(source)
 	print("we've played it?")
