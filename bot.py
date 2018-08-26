@@ -447,6 +447,20 @@ async def jordan(ctx):
 	vclient.play(source)
 	
 @bot.command()
+async def imjordan(ctx):
+	"""(voice) Space Jam was an enjoyable movie"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("imjordan.ogg"))
+	vclient.play(source)
+	
+@bot.command()
 async def stopit(ctx):
 	"""(voice) JUST DON'T"""
 	if not discord.opus.is_loaded():
