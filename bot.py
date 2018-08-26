@@ -516,7 +516,7 @@ async def owen(ctx):
 	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("owen.ogg"))
 	vclient.play(source)
 	
-	
+@imjordan.after_invoke
 @bees.after_invoke
 @owen.after_invoke
 @doit.after_invoke
