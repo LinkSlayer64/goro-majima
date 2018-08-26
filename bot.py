@@ -316,7 +316,7 @@ async def glight(ctx):
 		print("no channel")
 		return await ctx.send("You're not in voice Kiryu-chan!")
 	vclient = await vchannel.connect()
-	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("glightitup.ogg"))
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("glightitup_lowered.ogg"))
 	vclient.play(source)
 	
 	
