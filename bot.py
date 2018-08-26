@@ -474,7 +474,10 @@ async def gethelp(ctx):
 	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("gethelp.ogg"))
 	vclient.play(source)
 	
-
+@doit.after_invoke
+@jordan.after_invoke
+@stopit.after_invoke
+@gethelp.after_invoke
 @likethat.after_invoke
 @soulfist.after_invoke
 @reference.after_invoke
