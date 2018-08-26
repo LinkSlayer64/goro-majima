@@ -376,6 +376,51 @@ async def dododo(ctx):
 	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("darude_dododo.ogg"))
 	vclient.play(source)
 	
+@bot.command()
+async def likethat(ctx):
+	"""(voice) YOU LIKE THAT?"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("likethat"))
+	vclient.play(source)
+	
+@bot.command()
+async def soulfist(ctx):
+	"""(voice) SOUL FI-SOUL FI-SOUL FI-SOUL FI-SOUL FI-SOUL FI-SOUL FI-SOUL FI-SOUL FI-SOUL FI-SOUL FIST"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("soulfist.ogg"))
+	vclient.play(source)
+	
+@bot.command()
+async def reference(ctx):
+	"""(voice) Everything is a JoJo's reference"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("reference.ogg"))
+	vclient.play(source)
+
+@likethat.after_invoke
+@soulfist.after_invoke
+@reference.after_invoke
 @dododo.after_invoke
 @nut.after_invoke
 @nut2.after_invoke
@@ -414,6 +459,5 @@ async def antagonizeLTG(ctx):
 	"""bots shouldn't listen to other bots, but oh well lol"""
 	await ctx.send("!banned")
 
-	
-print(key)
+
 bot.run(key)
