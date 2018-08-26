@@ -387,7 +387,7 @@ async def likethat(ctx):
 		print("no channel")
 		return await ctx.send("You're not in voice Kiryu-chan!")
 	vclient = await vchannel.connect()
-	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("likethat"))
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("likethat.ogg"))
 	vclient.play(source)
 	
 @bot.command()
@@ -417,6 +417,63 @@ async def reference(ctx):
 	vclient = await vchannel.connect()
 	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("reference.ogg"))
 	vclient.play(source)
+
+@bot.command()
+async def doit(ctx):
+	"""(voice)*lightsaber noises*"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("doit.ogg"))
+	vclient.play(source)
+	
+@bot.command()
+async def jordan(ctx):
+	"""(voice) I'm bad at baseball"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("jordan.ogg"))
+	vclient.play(source)
+	
+@bot.command()
+async def stopit(ctx):
+	"""(voice) JUST DON'T"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("stopit.ogg"))
+	vclient.play(source)
+	
+@bot.command()
+async def gethelp(ctx):
+	"""(voice) SEEK ASSISTANCE"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("gethelp.ogg"))
+	vclient.play(source)
+	
 
 @likethat.after_invoke
 @soulfist.after_invoke
