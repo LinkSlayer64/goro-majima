@@ -474,6 +474,37 @@ async def gethelp(ctx):
 	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("gethelp.ogg"))
 	vclient.play(source)
 	
+@bot.command()
+async def bees(ctx):
+	"""(voice) FACE/OFF"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("bees.ogg"))
+	vclient.play(source)
+	
+@bot.command()
+async def owen(ctx):
+	"""(voice) Wow"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("owen.ogg"))
+	vclient.play(source)
+	
+	
+@bees.after_invoke
+@owen.after_invoke
 @doit.after_invoke
 @jordan.after_invoke
 @stopit.after_invoke
