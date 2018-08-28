@@ -530,6 +530,36 @@ async def uwu(ctx):
 	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("uwu.ogg"))
 	vclient.play(source)
 	
+@bot.command()
+async def glorious(ctx):
+	"""(voice) For only they can perceive reality"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("glorious.ogg"))
+	vclient.play(source)
+	
+@bot.command()
+async def ducks(ctx):
+	"""(voice) Such magnificento creatures"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("ducks.ogg"))
+	vclient.play(source)
+
+@glorious.after_invoke
+@ducks.after_invoke
 @uwu.after_invoke	
 @imjordan.after_invoke
 @bees.after_invoke
