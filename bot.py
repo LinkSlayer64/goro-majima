@@ -516,6 +516,21 @@ async def owen(ctx):
 	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("owen.ogg"))
 	vclient.play(source)
 	
+@bot.command()
+async def uwu(ctx):
+	"""(voice) OWO"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("uwu.ogg"))
+	vclient.play(source)
+	
+@uwu.after_invoke	
 @imjordan.after_invoke
 @bees.after_invoke
 @owen.after_invoke
