@@ -557,7 +557,22 @@ async def ducks(ctx):
 	vclient = await vchannel.connect()
 	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("ducks.ogg"))
 	vclient.play(source)
+	
+@bot.command()
+async def mahinapeaa(ctx):
+	"""(voice) Echoes make everything better"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("mahinapea_echo.ogg"))
+	vclient.play(source)
 
+@mahinapeaa.after_invoke
 @glorious.after_invoke
 @ducks.after_invoke
 @uwu.after_invoke	
