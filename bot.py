@@ -7,7 +7,7 @@ import random
 
 bot = commands.Bot(command_prefix='/', description='Kiryu\'s best buddy?')
 key = os.getenv('DISCORD_KEY')
-
+#todo - put a handler in voice commands for if we are already a part of a VC
 @bot.event
 async def on_ready():
 	game = discord.Game("Tracking down Kiryu-Chan")
@@ -571,7 +571,23 @@ async def mahinapeaa(ctx):
 	vclient = await vchannel.connect()
 	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("mahinapea_echo.ogg"))
 	vclient.play(source)
+	
+@bot.command()
+async def clap(ctx):
+	"""(voice) Echoes make everything better"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("clap.ogg"))
+	vclient.play(source)
 
+#todo - add all of these to a "voicecommand" sucsection so I don't need to type out each one
+@clap.after_invoke
 @mahinapeaa.after_invoke
 @glorious.after_invoke
 @ducks.after_invoke
