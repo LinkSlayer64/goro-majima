@@ -571,10 +571,10 @@ async def mahinapeaa(ctx):
 	vclient = await vchannel.connect()
 	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("mahinapea_echo.ogg"))
 	vclient.play(source)
-	
+
 @bot.command()
-async def clap(ctx):
-	"""(voice) Echoes make everything better"""
+async def breaker(ctx):
+	"""(voice) This is a good game"""
 	if not discord.opus.is_loaded():
 		discord.opus.load_opus('libopus.so.0')
 	if ctx.author.voice:
@@ -583,11 +583,26 @@ async def clap(ctx):
 		print("no channel")
 		return await ctx.send("You're not in voice Kiryu-chan!")
 	vclient = await vchannel.connect()
-	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("clap.ogg"))
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("breaker.ogg"))
+	vclient.play(source)
+	
+@bot.command()
+async def drown(ctx):
+	"""(voice) GOOD JOB"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("drowning.ogg"))
 	vclient.play(source)
 
 #todo - add all of these to a "voicecommand" sucsection so I don't need to type out each one
-@clap.after_invoke
+@breaker.after_invoke
+@drown.after_invoke
 @mahinapeaa.after_invoke
 @glorious.after_invoke
 @ducks.after_invoke
