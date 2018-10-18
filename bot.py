@@ -613,8 +613,38 @@ async def predictable(ctx):
 	vclient = await vchannel.connect()
 	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("predictable.ogg"))
 	vclient.play(source)
+	
+@bot.command()
+async def diabetes(ctx):
+	"""(voice) diabeetus"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("diabetes.ogg"))
+	vclient.play(source)
+	
+@bot.command()
+async def naw(ctx):
+	"""(voice) hell to the naw"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("naw.ogg"))
+	vclient.play(source)
 
 #todo - add all of these to a "voicecommand" sucsection so I don't need to type out each one
+@diabetes.after_invoke
+@naw.after_invoke
 @predictable.after_invoke
 @breaker.after_invoke
 @drown.after_invoke
