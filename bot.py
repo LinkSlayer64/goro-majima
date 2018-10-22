@@ -641,8 +641,53 @@ async def naw(ctx):
 	vclient = await vchannel.connect()
 	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("naw.ogg"))
 	vclient.play(source)
+	
+@bot.command()
+async def opticblast(ctx):
+	"""(voice) from the punch dimension"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("opticblast.ogg"))
+	vclient.play(source)
+	
+@bot.command()
+async def works(ctx):
+	"""(voice) buy skyrim"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("works.ogg"))
+	vclient.play(source)
+	
+@bot.command()
+async def fail(ctx):
+	"""(voice) Discord? DISSSSCOOOORD!!!"""
+	if not discord.opus.is_loaded():
+		discord.opus.load_opus('libopus.so.0')
+	if ctx.author.voice:
+		vchannel = ctx.author.voice.channel
+	else:
+		print("no channel")
+		return await ctx.send("You're not in voice Kiryu-chan!")
+	vclient = await vchannel.connect()
+	source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("missionfailed.ogg"))
+	vclient.play(source)
 
 #todo - add all of these to a "voicecommand" sucsection so I don't need to type out each one
+@fail.after_invoke
+@works.after_invoke
+@opticblast.after_invoke
 @diabetes.after_invoke
 @naw.after_invoke
 @predictable.after_invoke
